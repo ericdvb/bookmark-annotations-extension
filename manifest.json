@@ -1,0 +1,32 @@
+{
+  "manifest_version": 2,
+  "name": "Bookmark Annotations",
+  "version": "1.0.0",
+  "description": "Annotate your bookmarks with descriptions and tags using a Library-style interface.",
+  "permissions": [
+    "bookmarks"
+  ],
+  "browser_action": {
+    "default_icon": {
+      "48": "icons/icon-48.svg",
+      "96": "icons/icon-96.svg"
+    },
+    "default_title": "Bookmark Annotations"
+  },
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "commands": {
+    "_execute_browser_action": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+B",
+        "mac": "Command+Shift+B"
+      },
+      "description": "Open Bookmark Annotations window"
+    }
+  },
+  "icons": {
+    "48": "icons/icon-48.svg",
+    "96": "icons/icon-96.svg"
+  }
+}

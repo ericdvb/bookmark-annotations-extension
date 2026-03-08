@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Bookmark Annotations</title>
+  <link rel="stylesheet" href="window.css">
+</head>
+<body>
+  <div id="toolbar">
+    <input type="text" id="search-input" placeholder="Search bookmarks...">
+  </div>
+
+  <div id="main">
+    <div id="sidebar">
+      <div id="folder-tree"></div>
+    </div>
+    <div id="table-container">
+      <table id="bookmark-table">
+        <thead>
+          <tr>
+            <th class="col-name">Name</th>
+            <th class="col-url">URL</th>
+            <th class="col-tags">Tags</th>
+            <th class="col-desc">Description</th>
+          </tr>
+        </thead>
+        <tbody id="bookmark-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div id="detail-panel">
+    <div id="detail-empty">Select a bookmark to view details</div>
+    <div id="detail-form" class="hidden">
+      <div class="detail-row">
+        <label for="detail-name">Name:</label>
+        <input type="text" id="detail-name">
+      </div>
+      <div class="detail-row">
+        <label for="detail-url">URL:</label>
+        <input type="text" id="detail-url">
+      </div>
+      <div class="detail-row">
+        <label for="detail-tags">Tags:</label>
+        <input type="text" id="detail-tags" placeholder="comma-separated">
+      </div>
+      <div class="detail-row">
+        <label for="detail-desc">Description:</label>
+        <textarea id="detail-desc" rows="2"></textarea>
+      </div>
+      <div class="detail-actions">
+        <button id="detail-save">Save</button>
+        <span id="detail-status"></span>
+      </div>
+    </div>
+  </div>
+
+  <script src="db.js"></script>
+  <script src="window.js"></script>
+</body>
+</html>

@@ -1,0 +1,269 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  font-size: 13px;
+  color: #1a1a1a;
+  background: #f9f9fa;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* ── Toolbar / Search ── */
+
+#toolbar {
+  padding: 6px 8px;
+  background: #f0f0f4;
+  border-bottom: 1px solid #ccc;
+  flex-shrink: 0;
+}
+
+#search-input {
+  width: 250px;
+  padding: 4px 8px;
+  font-size: 13px;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  outline: none;
+}
+
+#search-input:focus {
+  border-color: #0060df;
+  box-shadow: 0 0 0 1px #0060df33;
+}
+
+/* ── Main Layout ── */
+
+#main {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* ── Sidebar ── */
+
+#sidebar {
+  width: 200px;
+  min-width: 150px;
+  background: #f0f0f4;
+  border-right: 1px solid #ccc;
+  overflow-y: auto;
+  flex-shrink: 0;
+  padding: 4px 0;
+}
+
+.folder-item {
+  display: flex;
+  align-items: center;
+  padding: 3px 8px;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.folder-item:hover {
+  background: #e0e0e6;
+}
+
+.folder-item.selected {
+  background: #0060df;
+  color: #fff;
+}
+
+.folder-arrow {
+  display: inline-block;
+  width: 14px;
+  font-size: 9px;
+  text-align: center;
+  flex-shrink: 0;
+  margin-right: 4px;
+}
+
+.folder-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.folder-children {
+  overflow: hidden;
+}
+
+.folder-children.collapsed {
+  display: none;
+}
+
+/* ── Table ── */
+
+#table-container {
+  flex: 1;
+  overflow: auto;
+}
+
+#bookmark-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+#bookmark-table thead {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+#bookmark-table th {
+  background: #f0f0f4;
+  border-bottom: 1px solid #ccc;
+  padding: 4px 8px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 12px;
+  color: #555;
+  user-select: none;
+}
+
+#bookmark-table td {
+  padding: 4px 8px;
+  border-bottom: 1px solid #e8e8e8;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: default;
+}
+
+#bookmark-table tbody tr:nth-child(even) {
+  background: #f4f4f8;
+}
+
+#bookmark-table tbody tr:hover {
+  background: #e8e8ee;
+}
+
+#bookmark-table tbody tr.selected {
+  background: #0060df;
+  color: #fff;
+}
+
+/* Column widths */
+.col-name { width: 30%; }
+.col-url  { width: 35%; }
+.col-tags { width: 15%; }
+.col-desc { width: 20%; }
+
+/* ── Inline Edit ── */
+
+.inline-edit {
+  width: 100%;
+  padding: 2px 4px;
+  font-size: 13px;
+  font-family: inherit;
+  border: 1px solid #0060df;
+  border-radius: 2px;
+  outline: none;
+  background: #fff;
+  color: #1a1a1a;
+}
+
+textarea.inline-edit {
+  resize: vertical;
+  min-height: 24px;
+}
+
+/* ── Detail Panel ── */
+
+#detail-panel {
+  flex-shrink: 0;
+  background: #f0f0f4;
+  border-top: 1px solid #ccc;
+  padding: 8px 12px;
+  min-height: 80px;
+}
+
+#detail-empty {
+  color: #888;
+  padding: 8px 0;
+  font-style: italic;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.detail-row {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 4px;
+}
+
+.detail-row label {
+  width: 80px;
+  flex-shrink: 0;
+  font-weight: 600;
+  padding-top: 4px;
+  color: #555;
+}
+
+.detail-row input,
+.detail-row textarea {
+  flex: 1;
+  padding: 3px 6px;
+  font-size: 13px;
+  font-family: inherit;
+  border: 1px solid #bbb;
+  border-radius: 3px;
+  outline: none;
+}
+
+.detail-row input:focus,
+.detail-row textarea:focus {
+  border-color: #0060df;
+}
+
+.detail-row textarea {
+  resize: vertical;
+  min-height: 36px;
+}
+
+.detail-actions {
+  margin-top: 6px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#detail-save {
+  padding: 4px 16px;
+  font-size: 13px;
+  background: #0060df;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#detail-save:hover {
+  background: #004ebc;
+}
+
+#detail-save:active {
+  background: #003e96;
+}
+
+.status-success {
+  color: #058b00;
+  font-size: 12px;
+}
+
+.status-error {
+  color: #d70022;
+  font-size: 12px;
+}
